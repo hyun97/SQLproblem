@@ -44,9 +44,9 @@ web/partial/html-1.jsp
 
 web/partial/html-2.jsp
 
-src/util/DatabaseUtil
+src/util/DatabaseUtil.java
 
-src/util/Gmail
+src/util/Gmail.java
 
 
 
