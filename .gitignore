@@ -34,9 +34,9 @@ web/WEB-INF/
 
 SQLproblem.iml
 
-robots.txt
+web/robots.txt
 
-sitemap.xml
+web/sitemap.xml
 
 
 
