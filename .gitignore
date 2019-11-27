@@ -28,8 +28,15 @@ lib/
 
 .idea/
 
+web/META-INF/
+
+web/WEB-INF/
+
 SQLproblem.iml
 
+web/robots.txt/
+
+web/sitemap.xml/
 
 
 
