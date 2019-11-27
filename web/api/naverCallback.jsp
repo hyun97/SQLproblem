@@ -7,10 +7,12 @@
 <%@ page import="java.net.HttpURLConnection" %>
 <%@ page import="java.net.URL" %>
 <%@ page import="java.net.URLEncoder" %>
+<%@include file="../ignore.jsp" %>
+
 <%
-    String clientId = "xALpyRaHhhaxEE532Nxp";//애플리케이션 클라이언트 아이디값";
-    String clientSecret = "yK70ltzoEA";//애플리케이션 클라이언트 시크릿값";
-    String code = request.getParameter("code");  //네이버 아이디로 로그인 인증에 성공하면 반환받는 인증 코드, 접근 토큰(access token) 발급에 사용
+    String clientId = naverClientID; // 애플리케이션 클라이언트 아이디값";
+    String clientSecret = naverClientSecret; // 애플리케이션 클라이언트 시크릿값";
+    String code = request.getParameter("code"); // 네이버 아이디로 로그인 인증에 성공하면 반환받는 인증 코드, 접근 토큰(access token) 발급에 사용
     String state = request.getParameter("state");
     String redirectURI = URLEncoder.encode("http://sqlproblem.net/api/naverCallback.jsp", "UTF-8");
     String apiURL;
@@ -49,7 +51,7 @@
     } catch (Exception e) {
         e.printStackTrace();
     }
-    String token = access_token;// 네이버 로그인 접근 토큰;
+    String token = access_token; // 네이버 로그인 접근 토큰;
     String header = "Bearer " + token; // Bearer 다음에 공백 추가
     try {
         apiURL = "https://openapi.naver.com/v1/nid/me";
