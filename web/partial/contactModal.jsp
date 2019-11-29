@@ -8,6 +8,8 @@
             <div class="container">
                 <h4>CONTACT</h4>
                 <form action="../action/contactAction.jsp" method="post">
+                    <p>Email</p>
+                    <input type="text" name="contactEmail" placeholder="답변받을 메일을 입력하세요." required>
                     <p>TITLE</p>
                     <input type="text" name="contactTitle" placeholder="문의 제목을 입력하세요." required>
                     <p>CONTENT</p>

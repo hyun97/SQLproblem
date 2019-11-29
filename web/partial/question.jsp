@@ -75,7 +75,8 @@
             <textarea class="materialize-textarea question-wrapper__answer tooltipped"
                       data-position="left" data-tooltip="대소문자를 구분하지 않습니다.<br><br>
                    마지막에 세미콜론(;)을 붙여주세요.<br><br>
-                   줄 바꿈(엔터)은 정답에 영향을 끼치지 않습니다." name="fullAnswer" required></textarea>
+                   줄 바꿈(엔터)은 정답에 영향을 끼치지 않습니다." name="fullAnswer" placeholder="select * from movie;"
+                      required></textarea>
             <%
             } else {
             %>

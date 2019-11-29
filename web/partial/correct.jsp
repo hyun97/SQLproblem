@@ -42,7 +42,6 @@
             <a href="../index?id=<%=nextQuestion%>" class='indigo-text text-darken-3'><i
                     class="material-icons">keyboard_return</i></a>
             <!-- Question Finish -->
-            <!-- TODO: 마지막 문제 지정 -->
             <% } else { %>
             <a href="../index?id=1" class='indigo-text text-darken-3'>END</a>
             <%

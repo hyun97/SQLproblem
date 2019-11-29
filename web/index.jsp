@@ -38,8 +38,8 @@
     String quizID = request.getParameter("id");
     if (request.getParameter("fullAnswer") != null) {
         PrintWriter script = response.getWriter();
-        String fullAnswer = request.getParameter("fullAnswer");
         String favoriteList = request.getParameter("playlist");
+        String fullAnswer = request.getParameter("fullAnswer");
         int fullVerifyResult = new SqlBankDAO().verifyAll(quizID, fullAnswer);
 
         if (fullVerifyResult == 1 && !ua.equals("mobile")) {

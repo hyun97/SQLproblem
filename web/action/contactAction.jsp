@@ -13,13 +13,14 @@
 <%
     request.setCharacterEncoding("UTF-8");
 
+    String contactEmail = request.getParameter("contactEmail");
     String contactTitle = request.getParameter("contactTitle");
     String contentText = request.getParameter("contactText");
 
     String from = "nkh1602@gmail.com";
     String to = "nkh1602@naver.com";
     String subject = "[SQL Problem] " + contactTitle;
-    String content = contentText;
+    String content = contentText + "  [" + contactEmail + "]";
 
     Properties prof = new Properties();
 
