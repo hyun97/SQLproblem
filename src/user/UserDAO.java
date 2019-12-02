@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.util.Random;
 
 public class UserDAO {
+    DatabaseUtil databaseUtil = DatabaseUtil.getDatabaseUtil();
 
     // 일반 회원가입
     public int signUp(UserDTO user) {
@@ -17,7 +18,7 @@ public class UserDAO {
         String SQL;
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
             SQL = "insert into user (name, password, email, email_verify) values (?, ?, ?, ?)";
             pstmt = conn.prepareStatement(SQL);
@@ -47,7 +48,7 @@ public class UserDAO {
         Random random = new Random();
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
             SQL = "insert into user (name, email, email_verify) values (?, ?, 1)";
             pstmt = conn.prepareStatement(SQL);
@@ -75,7 +76,7 @@ public class UserDAO {
         String SQL;
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
             SQL = "select password from user where email = ?";
             pstmt = conn.prepareStatement(SQL);
@@ -112,7 +113,7 @@ public class UserDAO {
         String SQL;
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             SQL = "select name from user where email = ?";
             pstmt = conn.prepareStatement(SQL);
             pstmt.setString(1, email);
@@ -142,7 +143,7 @@ public class UserDAO {
         String SQL;
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             SQL = "select email from user where name = ?";
             pstmt = conn.prepareStatement(SQL);
             pstmt.setString(1, name);
@@ -172,7 +173,7 @@ public class UserDAO {
         String SQL;
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             SQL = "select password from user where name = ?";
             pstmt = conn.prepareStatement(SQL);
             pstmt.setString(1, name);
@@ -202,7 +203,7 @@ public class UserDAO {
         String SQL;
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
             SQL = "select email_verify from user where name = ?";
             pstmt = conn.prepareStatement(SQL);
@@ -232,7 +233,7 @@ public class UserDAO {
         String SQL;
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
             SQL = "update user set email_verify = 1 where name = ?";
             pstmt = conn.prepareStatement(SQL);
@@ -266,7 +267,7 @@ public class UserDAO {
         String currentEmailSQL = "select email from user where name = ?";
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
             try {
                 if (!newName.equals("")) {

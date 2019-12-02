@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class StarDAO {
+    DatabaseUtil databaseUtil = DatabaseUtil.getDatabaseUtil();
 
     // Add or Remove User into Star
     public int handleClickStar(String userIP, String quizID, String userName) {
@@ -18,7 +19,7 @@ public class StarDAO {
         String unlikeSQL;
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
 
             starSQL = "select * from star where userIP = ? and quizID = ?";
@@ -84,7 +85,7 @@ public class StarDAO {
         String SQL;
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
             SQL = "select quizID from star where user = ?";
             pstmt = conn.prepareStatement(SQL);
@@ -116,7 +117,7 @@ public class StarDAO {
         int currentColumn;
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
             SQL = "select quizID from star where user = ?";
             pstmt = conn.prepareStatement(SQL);

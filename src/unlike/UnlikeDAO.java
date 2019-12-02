@@ -18,7 +18,8 @@ public class UnlikeDAO {
         String unlikeSQL;
 
         try {
-            conn = DatabaseUtil.getConnection();
+            DatabaseUtil databaseUtil = DatabaseUtil.getDatabaseUtil();
+            conn = databaseUtil.getConnection();
             assert conn != null;
 
             starSQL = "select * from star where userIP = ? and quizID = ?";

@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class SqlBankDAO {
+    DatabaseUtil databaseUtil = DatabaseUtil.getDatabaseUtil();
 
     // Get Question
     public ArrayList<SqlBankDTO> getQuestion(String quizID) {
@@ -18,7 +19,7 @@ public class SqlBankDAO {
         ArrayList<SqlBankDTO> questionList = new ArrayList<>();
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
             pstmt = conn.prepareStatement(SQL);
 
@@ -63,7 +64,7 @@ public class SqlBankDAO {
         String SQL = "select quizID from sqlBank where title = ?";
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
             pstmt = conn.prepareStatement(SQL);
             pstmt.setString(1, title);
@@ -96,7 +97,7 @@ public class SqlBankDAO {
         String dbSolution3 = null;
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
             SQL = "SELECT Replace(solution, ' ', ''), Replace(solution2, ' ', ''), Replace(solution3, ' ', '') FROM " +
                     "sqlBank WHERE quizID = ?";
@@ -144,7 +145,7 @@ public class SqlBankDAO {
         int currentColumn;
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
             SQL = "select part from sqlBank where quizID = ?";
             pstmt = conn.prepareStatement(SQL);
@@ -196,7 +197,7 @@ public class SqlBankDAO {
         ArrayList<SqlBankDTO> sqlBankList = new ArrayList<>();
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
             SQL = "select quizID, star, user, part, title from sqlBank order by star desc";
             pstmt = conn.prepareStatement(SQL);
@@ -235,7 +236,7 @@ public class SqlBankDAO {
         ArrayList<SqlBankDTO> mySqlList = new ArrayList<>();
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
             SQL = "select quizID, star, user, part, title from sqlBank where user = ?";
             pstmt = conn.prepareStatement(SQL);
@@ -277,7 +278,7 @@ public class SqlBankDAO {
         ArrayList<SqlBankDTO> starSqlList = new ArrayList<>();
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
             getIdSQL = "select quizID from star where user = ?";
             pstmt = conn.prepareStatement(getIdSQL);
@@ -325,7 +326,7 @@ public class SqlBankDAO {
         String SQL;
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
             SQL = "insert into sqlBank(user, part, title, question, solution, solution2, solution3) values(?,?,?," +
                     "?,?,?,?)";
@@ -364,7 +365,7 @@ public class SqlBankDAO {
         String getSolutionSQL;
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
             getSolutionSQL = "select solution, solution2, solution3 from sqlBank where quizID = ?";
             pstmt = conn.prepareStatement(getSolutionSQL);
@@ -449,7 +450,7 @@ public class SqlBankDAO {
         String SQL;
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
             SQL = "update sqlBank set star = star + 1 where quizID = ?";
             pstmt = conn.prepareStatement(SQL);
@@ -474,7 +475,7 @@ public class SqlBankDAO {
         String SQL;
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
             SQL = "update sqlBank set star = star - 1 where quizID = ?";
             pstmt = conn.prepareStatement(SQL);
@@ -499,7 +500,7 @@ public class SqlBankDAO {
         String SQL;
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
             SQL = "update sqlBank set unlike = unlike + 1 where quizID = ?";
             pstmt = conn.prepareStatement(SQL);
@@ -524,7 +525,7 @@ public class SqlBankDAO {
         String SQL;
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
             SQL = "update sqlBank set unlike = unlike - 1 where quizID = ?";
             pstmt = conn.prepareStatement(SQL);
@@ -551,7 +552,7 @@ public class SqlBankDAO {
         String unlikeSQL = "delete from unlike where quizID = ?";
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             assert conn != null;
 
             pstmt = conn.prepareStatement(sqlBankSQL);
@@ -586,7 +587,7 @@ public class SqlBankDAO {
         String SQL;
 
         try {
-            conn = DatabaseUtil.getConnection();
+            conn = databaseUtil.getConnection();
             SQL = "select user from sqlBank where quizID = ?";
             pstmt = conn.prepareStatement(SQL);
             pstmt.setInt(1, Integer.parseInt(quizID));
