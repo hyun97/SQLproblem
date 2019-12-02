@@ -19,7 +19,8 @@
 <div class="row">
     <div class="col s12">
         <!-- Like -->
-        <a class="sql-like light-blue-text" href="./action/starAction.jsp?quizID=<%=sqlBankDTO.getQuizID()%>">
+        <a class="sql-like light-blue-text tooltipped" data-tooltip="프로필에 문제 저장" data-position="left"
+           href="./action/starAction.jsp?quizID=<%=sqlBankDTO.getQuizID()%>">
             <i class="material-icons">thumb_up</i>
             <%=sqlBankDTO.getStar()%>
         </a>
