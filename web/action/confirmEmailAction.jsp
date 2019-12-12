@@ -50,7 +50,7 @@
             "                 <a href=\"mailto:nkh1602@naver.com\">nkh1602@naver.com</a>" +
             "             </p>" +
             "             <br>" +
-            "             <a href=\"http://localhost:8080/action/confirmEmailAction.jsp?mail=1\">" +
+            "             <a href=\"http://www.sqlproblem.net/action/confirmEmailAction.jsp?mail=1\">" +
             "                 <button style=\"border: 0; padding: 12px 128px !important; font-size: 1.5em; font-weight:bold; color: white; border-radius:4px; height: auto !important; background-color: #ff5a5f;\">" +
             "                     이메일 주소 인증" +
             "                 </button>" +
